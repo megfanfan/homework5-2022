@@ -1,0 +1,131 @@
+/* mobile view style */
+body{
+    font-family: "Poppins", serif;
+    background-image: url(../images/concrete_seamless.png);
+    background-color: #f1f1f1;
+}
+header{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+}
+.nav_links{
+/* organizing nav links */
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+}
+a:visited{
+/* visited and not visisted links are same color */
+    color: blue 
+}
+div.card > header{ /* styling the cards */
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    margin-bottom: 0px;
+}
+div.card{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 450px;
+}
+.pricing{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+div.gallery img{ 
+/* styling gallery */
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* animation of the logo */
+#logo{
+    animation-name: move;
+    animation-duration: 5s;
+}
+@keyframes move {
+    0% {width: 25px; opacity:0;}
+    100% {width: 475px; opacity:1;}
+  }
+
+/* large screen view style */
+  @media only screen and (min-width: 900px) {
+    header{ 
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav_links{ 
+        flex-direction: row;
+    }
+    div.card header{
+        align-items: flex-start;
+    }
+    .card{
+        flex-basis: 275px;
+    }
+    .pricing {
+        flex-wrap: nowrap;
+    }
+    a ~ header{
+        position: sticky;
+        top: 0;
+    }
+  }
+
+/* reduced motion users style */
+@media (prefers-reduced-motion) {
+    #logo{
+        animation: none;
+    }
+}
+
+/* print view style */
+@media print{
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none; 
+    }
+    .nav_links{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .pricing{
+        flex-direction: row;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+    .card{
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+    #gallery{
+        display:none;
+    }
+    .gallery{
+        display:none;
+    }
+    div.card > ul > li:nth-child(2)::after{
+        content: "👍";
+    }
+}
+
